@@ -1,0 +1,10 @@
+[
+    {
+        "movieId": 200,
+        "rating": "gold"
+    },
+    {
+        "movieId": 400,
+        "rating": "silver"
+    }
+]
