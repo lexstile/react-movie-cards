@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
@@ -12,6 +13,14 @@ const miniCssExtractConfig = new MiniCssExtractPlugin({
   filename: '[name].[hash].css',
   chunkFilename: '[id].[hash].css',
 });
+
+const copyWebpackPlugin = new CopyWebpackPlugin([
+  {
+    context: './src/images',
+    from: '**/*',
+    to: './images'
+  }
+]);
 
 module.exports = {
   entry: './src/index.js',
@@ -83,6 +92,7 @@ module.exports = {
   },
   plugins: [
     htmlWebpackPluginConfig,
+    copyWebpackPlugin,
     miniCssExtractConfig,
     autoprefixer,
   ],
