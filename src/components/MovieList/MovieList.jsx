@@ -10,12 +10,16 @@ type MovieListPropsType = {
 
 export class MovieList extends React.PureComponent<MovieListPropsType> {
   render() {
-    const { movies } = this.props;
+    const { movies, recommended } = this.props;
     return (
       <div className="mt-5">
         <div className="card-deck">
           {movies && movies.map(movie => (
-            <Movie movie={movie} key={movie.id} />
+            <Movie
+              key={movie.id}
+              movie={movie}
+              recommended={recommended.find(({ movieId }) => movieId === movie.id) || null}
+            />
           ))}
         </div>
       </div>

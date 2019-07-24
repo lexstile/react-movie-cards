@@ -12,13 +12,20 @@ type AppComponentPropsType = {
 };
 
 class AppComponent extends React.PureComponent<AppComponentPropsType> {
+  // markRecommend(movies) {
+  //   return movies.map(movie => );
+  // }
   render() {
+    const { movies, recommended } = this.props;
     return (
       <React.Fragment>
         <Header>
           React Movie Cards
         </Header>
-        <MovieList movies={this.props.movies} />
+        <MovieList
+          movies={movies}
+          recommended={recommended}
+        />
       </React.Fragment>
     );
   }
