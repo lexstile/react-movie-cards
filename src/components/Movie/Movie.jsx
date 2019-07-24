@@ -1,11 +1,12 @@
 // @flow
 import * as React from 'react';
 import { StarRating } from '../StarRating';
-import type { MovieType } from '../../types';
+import type { MovieType, recommendedType } from '../../types';
 import './Movie.less';
 
 type MoviePropsType = {
   movie: MovieType,
+  recommended: Array<recommendedType>,
 };
 
 export class Movie extends React.PureComponent<MoviePropsType> {

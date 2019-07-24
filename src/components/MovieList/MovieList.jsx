@@ -1,25 +1,27 @@
 // @flow
 import * as React from 'react';
 import { Movie } from '../Movie';
-import type { MovieType } from '../../types';
+import type { MovieType, recommendedType } from '../../types';
 import './MovieList.less';
 
 type MovieListPropsType = {
   movies: Array<MovieType>,
+  recommended: Array<recommendedType>,
 };
 
 export class MovieList extends React.PureComponent<MovieListPropsType> {
   render() {
-    const { movies, recommended } = this.props;
+    const { movies, recommended, display } = this.props;
     return (
-      <div className="mt-5">
-        <div className="card-deck">
+      <div className="container">
+        <div className="row">
           {movies && movies.map(movie => (
-            <Movie
-              key={movie.id}
-              movie={movie}
-              recommended={recommended.find(({ movieId }) => movieId === movie.id) || null}
-            />
+            <div className={`col-${12 / display}`} key={movie.id}>
+              <Movie
+                movie={movie}
+                recommended={recommended.find(({ movieId }) => movieId === movie.id) || null}
+              />
+            </div>
           ))}
         </div>
       </div>
