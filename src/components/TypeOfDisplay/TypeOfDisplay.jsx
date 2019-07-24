@@ -2,7 +2,14 @@
 import * as React from 'react';
 import './TypeOfDisplay.less';
 
-export class TypeOfDisplay extends React.PureComponent<{}> {
+type TypeOfDisplayPropsType = {
+  oneInRow: () => void,
+  twoInRow: () => void,
+  threeInRow: () => void,
+  display: Number,
+};
+
+export class TypeOfDisplay extends React.PureComponent<TypeOfDisplayPropsType> {
   render() {
     const {
       oneInRow,
