@@ -9,3 +9,8 @@ export type MovieType = {
   imageUrl: String,
   rating: Number,
 };
+
+export type recommendedType = {
+  movieId: Number,
+  rating: String,
+};
