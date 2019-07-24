@@ -20,7 +20,7 @@ export class Movie extends React.PureComponent<MoviePropsType> {
     const border = recommended ? recommended.rating : '';
     return (
       <div className="movie-card">
-        <div className={`movie-card card ${border} ${(index % 2 === 0 && display === 2) ? 'reverse' : ''}`}>
+        <div className={`movie-card card ${border} ${(index % 2 === 0 && display === 2) ? 'reverse' : ''} ${display === 1 ? 'row-reverse' : ''}`}>
           <img className="card-img-top" src={movie.imageUrl} alt={movie.title} />
           <div className="card-body">
             <h4 className="card-title">{movie.title}</h4>
