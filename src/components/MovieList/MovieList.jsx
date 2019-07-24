@@ -19,7 +19,8 @@ export class MovieList extends React.PureComponent<MovieListPropsType> {
             <div className={`col-${12 / display}`} key={movie.id}>
               <Movie
                 movie={movie}
-                index={index}
+                index={index + 1}
+                display={display}
                 recommended={recommended.find(({ movieId }) => movieId === movie.id) || null}
               />
             </div>

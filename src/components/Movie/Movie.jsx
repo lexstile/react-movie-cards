@@ -11,11 +11,16 @@ type MoviePropsType = {
 
 export class Movie extends React.PureComponent<MoviePropsType> {
   render() {
-    const { movie, recommended } = this.props;
+    const {
+      movie,
+      recommended,
+      index,
+      display,
+    } = this.props;
     const border = recommended ? recommended.rating : '';
     return (
       <div className="movie-card">
-        <div className={`movie-card card ${border}`}>
+        <div className={`movie-card card ${border} ${(index % 2 === 0 && display === 2) ? 'reverse' : ''}`}>
           <img className="card-img-top" src={movie.imageUrl} alt={movie.title} />
           <div className="card-body">
             <h4 className="card-title">{movie.title}</h4>
