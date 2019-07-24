@@ -15,10 +15,11 @@ export class MovieList extends React.PureComponent<MovieListPropsType> {
     return (
       <div className="container">
         <div className="row">
-          {movies && movies.map(movie => (
+          {movies && movies.map((movie, index) => (
             <div className={`col-${12 / display}`} key={movie.id}>
               <Movie
                 movie={movie}
+                index={index}
                 recommended={recommended.find(({ movieId }) => movieId === movie.id) || null}
               />
             </div>

@@ -15,50 +15,24 @@ type AppComponentPropsType = {
 class AppComponent extends React.PureComponent<AppComponentPropsType> {
   state = {
     display: 3,
-    btnActive: {
-      one: false,
-      two: false,
-      three: true,
-    },
   }
 
-  oneInRow = () => this.setState({
-    display: 1,
-    btnActive: {
-      one: true,
-      two: false,
-      three: false,
-    },
-  });
+  oneInRow = () => this.setState({ display: 1 });
 
-  twoInRow = () => this.setState({
-    display: 2,
-    btnActive: {
-      one: false,
-      two: true,
-      three: false,
-    },
-  });
+  twoInRow = () => this.setState({ display: 2 });
 
-  threeInRow = () => this.setState({
-    display: 3,
-    btnActive: {
-      one: false,
-      two: false,
-      three: true,
-    },
-  });
+  threeInRow = () => this.setState({ display: 3 });
 
   render() {
     const { movies, recommended } = this.props;
-    const { display, btnActive } = this.state;
+    const { display } = this.state;
     return (
       <React.Fragment>
         <Header>
           React Movie Cards
         </Header>
         <TypeOfDisplay
-          btnActive={btnActive}
+          display={display}
           oneInRow={this.oneInRow}
           twoInRow={this.twoInRow}
           threeInRow={this.threeInRow}

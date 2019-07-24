@@ -8,17 +8,17 @@ export class TypeOfDisplay extends React.PureComponent<{}> {
       oneInRow,
       twoInRow,
       threeInRow,
-      btnActive,
+      display,
     } = this.props;
     return (
       <div className="display">
-        <button className={btnActive.one ? 'gold' : 'black'} type="button" onClick={oneInRow}>
+        <button className={display === 1 ? 'gold' : 'black'} type="button" onClick={oneInRow}>
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 455 455">
             <rect width="455" height="212" />
             <rect y="242" width="455" height="213" />
           </svg>
         </button>
-        <button className={btnActive.two ? 'gold' : 'black'} type="button" onClick={twoInRow}>
+        <button className={display === 2 ? 'gold' : 'black'} type="button" onClick={twoInRow}>
           <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 455 455">
             <rect width="213" height="212" />
             <rect x="243" width="212" height="212" />
@@ -26,7 +26,7 @@ export class TypeOfDisplay extends React.PureComponent<{}> {
             <rect x="243" y="242" width="212" height="213" />
           </svg>
         </button>
-        <button className={btnActive.three ? 'gold' : 'black'} type="button" onClick={threeInRow}>
+        <button className={display === 3 ? 'gold' : 'black'} type="button" onClick={threeInRow}>
           <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 455 455">
             <rect x="162" y="161" width="132" height="132" />
             <rect x="162" y="323" width="132" height="132" />
