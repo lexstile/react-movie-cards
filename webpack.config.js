@@ -16,11 +16,19 @@ const miniCssExtractConfig = new MiniCssExtractPlugin({
 
 const copyWebpackPlugin = new CopyWebpackPlugin([
   {
-    context: './src/images',
+    context: './server/images',
     from: '**/*',
     to: './images'
   }
 ]);
+
+// const babelPluginRootImport = () => [
+//   "babel-plugin-root-import",
+//   {
+//     "rootPathPrefix": "#",
+//     "rootPathSuffix": "./src",
+//   }
+// ];
 
 module.exports = {
   entry: './src/index.js',
@@ -70,7 +78,13 @@ module.exports = {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]__[hash:base64:5]',
+            },
+          },
           {
             loader: 'postcss-loader',
             options: {
@@ -79,11 +93,14 @@ module.exports = {
                   browsers: ['> 0%'],
                 }),
               ],
-              sourceMap: true,
             },
           },
           'less-loader',
         ],
+      },
+      {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: 'file-loader',
       },
     ],
   },
@@ -91,6 +108,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.css', '.less'],
   },
   plugins: [
+    // babelPluginRootImport,
     htmlWebpackPluginConfig,
     copyWebpackPlugin,
     miniCssExtractConfig,

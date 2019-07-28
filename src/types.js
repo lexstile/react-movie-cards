@@ -10,7 +10,7 @@ export type MovieType = {
   rating: Number,
 };
 
-export type recommendedType = {
+export type recommendationsType = {
   movieId: Number,
   rating: String,
 };

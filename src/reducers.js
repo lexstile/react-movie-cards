@@ -1,11 +1,12 @@
 // @flow
 const initialStateApp = {
   movies: [],
+  recommendations: [],
 };
 
 export const appReducer = (state = initialStateApp, action) => {
   switch (action.type) {
-    case 'INITIAL_STATE':
+    case 'STORE_DATA':
       return {
         ...state,
         ...action.payload,
