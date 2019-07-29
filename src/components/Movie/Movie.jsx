@@ -1,23 +1,22 @@
 // @flow
 import * as React from 'react';
 import { StarRating } from '../StarRating';
-import './Movie.less';
+import styles from './Movie.less';
 
 export const Movie = ({
   movie,
   recommendations,
-  index,
-  display,
+  // index,
 }) => {
   const border = recommendations ? recommendations.rating : '';
   return (
     <div className="movie-card">
-      <div className={`movie-card card ${border} ${(index % 2 === 0 && display === 2) ? 'reverse' : ''} ${display === 1 ? 'row-reverse' : ''}`}>
+      <div className={`movie-card card ${border}`}>
         <img className="card-img-top" src={movie.imageUrl} alt={movie.title} />
         <div className="card-body">
           <h4 className="card-title">{movie.title}</h4>
           <h6 className="card-subtitle mb-2 text-muted">{movie.subtitle}</h6>
-          <p className="text-justify movie-descr">{movie.description}</p>
+          <p className={`text-justify ${styles.movieDescr}`}>{movie.description}</p>
         </div>
         <div className="card-footer">
           <div className="clearfix">

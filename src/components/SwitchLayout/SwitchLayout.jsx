@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { IconButton } from '../../modules/IconButton';
-import { LayoutType } from './constants';
+import { LayoutType } from '../../constants';
 import desktopIconPath from './assets/desctopIcon.svg';
 import tabletIconPath from './assets/tabletIcon.svg';
 import mobileIconPath from './assets/mobileIcon.svg';
@@ -22,13 +22,14 @@ const buttons = [
   },
 ];
 
-export const SwitchLayout = () => (
+export const SwitchLayout = ({ layout, onChangeLayout }) => (
   <div className={`d-flex justify-content-end ${styles.display}`}>
-    {buttons && buttons.map(button => (
+    {buttons && buttons.map(({ type, src }) => (
       <IconButton
-        src={button.src}
-        svgClass="gold"
-        // onClick={handleClick}
+        key={type}
+        src={src}
+        active={type === layout}
+        onClick={() => onChangeLayout(type)}
       />
     ))}
   </div>

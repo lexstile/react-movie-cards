@@ -1,10 +1,11 @@
 // @flow
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { requestData } from './actions';
 import { getMoviesSelector, getRecommendationsSelector } from './selectors';
 import { Header, MovieList, SwitchLayout } from './components';
+import { LayoutType } from './constants';
 import './App.less';
 
 export const App = connect(
@@ -17,7 +18,7 @@ export const App = connect(
   (props) => {
     const { movies, recommendations } = props;
 
-    // const [layout, switchLayout] = useState('DESCTOP');
+    const [layout, changeLayout] = useState(LayoutType.DESKTOP);
 
     useEffect(() => {
       props.getData();
@@ -28,11 +29,14 @@ export const App = connect(
         <Header>
           React Movie Cards
         </Header>
-        <SwitchLayout />
+        <SwitchLayout
+          layout={layout}
+          onChangeLayout={changeLayout}
+        />
         <MovieList
           movies={movies}
           recommendations={recommendations}
-          display="3"
+          layout={layout}
         />
       </React.Fragment>
     );
