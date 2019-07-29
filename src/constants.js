@@ -6,9 +6,9 @@ export const MOVIES_REC_STORE_KEY = 'recommendations';
 export const API_BASE_URL = 'http://localhost:3000';
 
 export const LayoutType = {
-  MOBILE: 'MOBILE',
-  TABLET: 'TABLET',
-  DESKTOP: 'DESKTOP',
+  MOBILE: 'Mobile',
+  TABLET: 'Tablet',
+  DESKTOP: 'Desctop',
 };
 
 export const actionType = {
