@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StarRating } from '../../StarRating';
 
 export const TabletMovieLayout = ({ movie, rating }) => (
-  <div className="col-4 mb-5">
+  <div className="col-6 mb-5">
     <div className="movie-card">
       <div className={`movie-card card ${rating}`}>
         <img className="card-img-top" src={movie.imageUrl} alt={movie.title} />
