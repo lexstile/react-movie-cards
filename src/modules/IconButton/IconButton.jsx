@@ -1,15 +1,21 @@
 // @flow
 import React from 'react';
 import ReactSVG from 'react-svg';
+import classnames from 'classnames';
 import styles from './IconButton.less';
 
-export const IconButton = ({
-  src, active, onClick,
-}) => (
+type IconButtonPropsType = {
+  src: String,
+  active: Boolean,
+  onClick: () => void,
+};
+
+export const IconButton = (
+  { src, active, onClick } : IconButtonPropsType
+) => (
   <ReactSVG
     src={src}
-    className={`${styles.iconButton} ${(active && styles.active)}`}
-    // beforeInjection={svg => svg.classList.add(classActive)}
+    className={classnames(styles.iconButton, active ? styles.active : '')}
     onClick={onClick}
   />
 );

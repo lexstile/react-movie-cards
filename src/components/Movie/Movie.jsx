@@ -1,13 +1,17 @@
 // @flow
 import * as React from 'react';
 import { StarRating } from '../StarRating';
+import type { MovieType, recommendationsType } from '../../types';
 import styles from './Movie.less';
 
-export const Movie = ({
-  movie,
-  recommendations,
-  // index,
-}) => {
+type MoviePropsType = {
+  movie: MovieType,
+  recommendations: recommendationsType,
+};
+
+export const Movie = (
+  { movie, recommendations } : MoviePropsType
+) => {
   const border = recommendations ? recommendations.rating : '';
   return (
     <div className="movie-card">

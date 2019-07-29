@@ -2,7 +2,13 @@
 import * as React from 'react';
 import styles from './Header.less';
 
-export const Header = ({ children }) => (
+type HeaderPropsType = {
+  children: String,
+};
+
+export const Header = (
+  { children } : HeaderPropsType
+) => (
   <nav className={`${styles.header} navbar navbar-dark bg-dark`}>
     <div className="container">
       <div className="row m-auto">

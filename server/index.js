@@ -7,12 +7,8 @@ const app = express();
 
 app.use(cors());
 
-app.get('/api/movies', function (_, res) {
-  res.send(movies);
-});
+app.get('/api/movies', (_, res) => res.send(movies));
 
-app.get('/api/recommendations', function (_, res) {
-  res.send(recommendations);
-});
+app.get('/api/recommendations', (_, res) => res.send(recommendations));
 
 app.listen(3000);

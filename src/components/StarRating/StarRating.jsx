@@ -20,8 +20,14 @@ const styles = {
 
 const cropWidth = rating => Math.floor(rating * width / 5);
 
-export const StarRating = (props) => {
-  const containerStyle = { width: `${cropWidth(props.rating)}px` };
+type StarRatingPropsType = {
+  rating: String,
+};
+
+export const StarRating = (
+  { rating } : StarRatingPropsType
+) => {
+  const containerStyle = { width: `${cropWidth(rating)}px` };
   return (
     <div>
       <div style={styles.starsOuter}>

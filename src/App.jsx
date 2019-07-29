@@ -6,7 +6,14 @@ import { requestData } from './actions';
 import { getMoviesSelector, getRecommendationsSelector } from './selectors';
 import { Header, MovieList, SwitchLayout } from './components';
 import { LayoutType } from './constants';
+import type { MovieType, recommendationsType } from './types';
 import './App.less';
+
+type AppPropsType = {
+  movies: Array<MovieType>,
+  recommendations: Array<recommendationsType>,
+  getData: () => void,
+};
 
 export const App = connect(
   createStructuredSelector({
@@ -15,13 +22,13 @@ export const App = connect(
   }),
   { getData: requestData },
 )(
-  (props) => {
-    const { movies, recommendations } = props;
-
+  (
+    { movies, recommendations, getData } : AppPropsType
+  ) => {
     const [layout, changeLayout] = useState(LayoutType.DESKTOP);
 
     useEffect(() => {
-      props.getData();
+      getData();
     }, []);
 
     return (

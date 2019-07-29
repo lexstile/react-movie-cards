@@ -10,3 +10,7 @@ export const LayoutType = {
   TABLET: 'TABLET',
   DESKTOP: 'DESKTOP',
 };
+
+export const actionType = {
+  DATA: 'STORE_DATA',
+};

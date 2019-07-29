@@ -1,6 +1,7 @@
 // @flow
+import { actionType } from './constants';
 
 export const storeData = data => ({
-  type: 'STORE_DATA',
+  type: actionType.DATA,
   payload: data,
 });

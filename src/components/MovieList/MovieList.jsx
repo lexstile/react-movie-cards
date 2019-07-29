@@ -1,9 +1,17 @@
 // @flow
 import * as React from 'react';
 import { Movie } from '../Movie';
+import type { MovieType, recommendationsType } from '../../types';
 import styles from './MovieList.less';
 
-export const MovieList = ({ movies, recommendations }) => (
+type MovieListPropsType = {
+  movies: Array<MovieType>,
+  recommendations: Array<recommendationsType>,
+};
+
+export const MovieList = (
+  { movies, recommendations } : MovieListPropsType
+) => (
   <div className="container">
     <div className="row">
       {movies && movies.map((movie, index) => (
