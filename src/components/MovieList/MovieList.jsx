@@ -34,8 +34,8 @@ export const MovieList = connect(
       <div className="row">
         {movies && movies.map((movie, index) => (
           <Movie
-            index={index}
             key={movie.id}
+            even={(index + 1) % 2 === 0}
             layout={layout}
             movie={movie}
             recommendation={recommendations.find(({ movieId }) => movieId === movie.id)}

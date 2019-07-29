@@ -9,6 +9,7 @@ type MoviePropsType = {
   movie: MovieType,
   recommendation: RecommendationsType,
   layout: String,
+  even: Boolean,
 };
 
 const setColorBorder = (rating) => {
@@ -21,9 +22,12 @@ const setColorBorder = (rating) => {
 
 const initializeComponent = layout => MovieLayouts[`${layout}MovieLayout`];
 
-export const Movie = (
-  { movie, recommendation, layout } : MoviePropsType
-) => {
+export const Movie = ({
+  movie,
+  recommendation,
+  layout,
+  even,
+} : MoviePropsType) => {
   const rating = setColorBorder(recommendation && recommendation.rating);
   const MovieLayout = initializeComponent(layout);
 
@@ -31,6 +35,8 @@ export const Movie = (
     <MovieLayout
       movie={movie}
       rating={rating}
+      layout={layout}
+      even={even}
     />
   );
 };
