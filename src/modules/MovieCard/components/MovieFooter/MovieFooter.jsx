@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { StarRating } from '../../../StarRating';
+import { StarRating } from '@/StarRating';
 
 export const MovieFooter = (
   { movie }

@@ -2,11 +2,17 @@
   "presets": [
     "@babel/preset-env",
     "@babel/preset-react",
-    "@babel/preset-flow"
+    "@babel/preset-flow",
   ],
   "plugins": [
     "transform-class-properties",
-    ["babel-plugin-root-import"],
+    [
+      "babel-plugin-root-import",
+      {
+        "rootPathPrefix": "@/",
+        "rootPathSuffix": "./src/modules",
+      },
+    ],
     [
       "@babel/plugin-transform-runtime",
       {
@@ -14,8 +20,8 @@
         "corejs": false,
         "helpers": true,
         "regenerator": true,
-        "useESModules": false
-      }
-    ]
+        "useESModules": false,
+      },
+    ],
   ],
 }

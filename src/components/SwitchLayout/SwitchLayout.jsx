@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { IconButton } from '../../modules/IconButton';
+import { IconButton } from '@/IconButton';
 import { buttons } from './constants';
 import styles from './SwitchLayout.less';
 

@@ -18,17 +18,25 @@ const copyWebpackPlugin = new CopyWebpackPlugin([
   {
     context: './server/images',
     from: '**/*',
-    to: './images'
-  }
+    to: './images',
+  },
 ]);
 
-// const babelPluginRootImport = () => [
-//   "babel-plugin-root-import",
-//   {
-//     "rootPathPrefix": "#",
-//     "rootPathSuffix": "./src",
-//   }
-// ];
+const babelPluginRootImport = () => [
+  'babel-plugin-root-import',
+  {
+    paths: [
+      {
+        rootPathPrefix: '@/',
+        rootPathSuffix: './src/modules',
+      },
+      {
+        rootPathPrefix: '#/',
+        rootPathSuffix: './src/components',
+      },
+    ],
+  },
+];
 
 module.exports = {
   entry: './src/index.js',
@@ -108,7 +116,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.css', '.less'],
   },
   plugins: [
-    // babelPluginRootImport,
+    babelPluginRootImport,
     htmlWebpackPluginConfig,
     copyWebpackPlugin,
     miniCssExtractConfig,

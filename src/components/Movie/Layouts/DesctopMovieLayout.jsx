@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { MovieCard } from '../../../modules';
+import { MovieCard } from '@/MovieCard';
 
 type DesctopMovieLayoutType = {
   movie: MovieType,
