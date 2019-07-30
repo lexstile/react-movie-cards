@@ -22,22 +22,6 @@ const copyWebpackPlugin = new CopyWebpackPlugin([
   },
 ]);
 
-const babelPluginRootImport = () => [
-  'babel-plugin-root-import',
-  {
-    paths: [
-      {
-        rootPathPrefix: '@/',
-        rootPathSuffix: './src/modules',
-      },
-      {
-        rootPathPrefix: '#/',
-        rootPathSuffix: './src/components',
-      },
-    ],
-  },
-];
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -116,7 +100,6 @@ module.exports = {
     extensions: ['.js', '.jsx', '.css', '.less'],
   },
   plugins: [
-    babelPluginRootImport,
     htmlWebpackPluginConfig,
     copyWebpackPlugin,
     miniCssExtractConfig,
