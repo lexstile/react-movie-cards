@@ -9,7 +9,7 @@ type MobileMovieLayoutType = {
   even: Boolean,
 };
 
-export const MobileMovieLayout = ({
+const MobileMovieLayout = ({
   movie,
   layout,
   rating,
@@ -24,3 +24,5 @@ export const MobileMovieLayout = ({
     />
   </div>
 );
+
+export default MobileMovieLayout;

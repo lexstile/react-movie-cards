@@ -1,6 +1,5 @@
 // @flow
-import * as React from 'react';
-import * as MovieLayouts from './Layouts';
+import React, { Suspense } from 'react';
 import { Rating } from './constants';
 import type { MovieType, RecommendationsType } from '../../types';
 import styles from './Movie.less';
@@ -20,8 +19,6 @@ const setColorBorder = (rating) => {
   }
 };
 
-const initializeComponent = layout => MovieLayouts[`${layout}MovieLayout`];
-
 export const Movie = ({
   movie,
   recommendation,
@@ -29,14 +26,17 @@ export const Movie = ({
   even,
 } : MoviePropsType) => {
   const rating = setColorBorder(recommendation && recommendation.rating);
-  const MovieLayout = initializeComponent(layout);
+  const loadComponentName = `./layouts/${layout}MovieLayout`;
+  const MovieLayout = React.lazy(() => import(loadComponentName));
 
   return (
-    <MovieLayout
-      movie={movie}
-      rating={rating}
-      layout={layout}
-      even={even}
-    />
+    <Suspense fallback={<div>Загрузка макета...</div>}>
+      <MovieLayout
+        movie={movie}
+        rating={rating}
+        layout={layout}
+        even={even}
+      />
+    </Suspense>
   );
 };

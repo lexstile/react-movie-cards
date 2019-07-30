@@ -23,5 +23,6 @@
         "useESModules": false,
       },
     ],
+    ["@babel/plugin-syntax-dynamic-import"],
   ],
 }

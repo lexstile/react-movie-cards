@@ -8,7 +8,7 @@ type DesctopMovieLayoutType = {
   even: Boolean,
 };
 
-export const DesctopMovieLayout = (
+const DesctopMovieLayout = (
   { movie, rating, even } : DesctopMovieLayoutType
 ) => (
   <div className="col-4 mb-5 movie">
@@ -19,3 +19,5 @@ export const DesctopMovieLayout = (
     />
   </div>
 );
+
+export default DesctopMovieLayout;

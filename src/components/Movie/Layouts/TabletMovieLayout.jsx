@@ -9,7 +9,7 @@ type TabletMovieLayoutType = {
   even: Boolean,
 };
 
-export const TabletMovieLayout = ({
+const TabletMovieLayout = ({
   movie,
   layout,
   rating,
@@ -24,3 +24,5 @@ export const TabletMovieLayout = ({
     />
   </div>
 );
+
+export default TabletMovieLayout;
