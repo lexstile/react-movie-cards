@@ -2,15 +2,23 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import { LayoutType } from '../../constants';
+import { MovieType } from '../../types';
 import { MovieImage, MovieBody, MovieFooter } from './components';
 import styles from './MovieCard.less';
+
+type MovieCardPropsType = {
+  movie: MovieType,
+  rating: String,
+  layout: String,
+  even: Boolean,
+};
 
 export const MovieCard = ({
   movie,
   rating,
   layout,
   even,
-}) => {
+} : MovieCardPropsType) => {
   const isMobileType = layout === LayoutType.MOBILE;
   const isTabletType = layout === LayoutType.TABLET;
   const classesNames = classnames(
@@ -26,13 +34,13 @@ export const MovieCard = ({
     <div className="movie-card">
       <div className={classesNames}>
         <MovieImage
-          movie={movie}
+          {...movie}
         />
         <MovieBody
-          movie={movie}
+          {...movie}
         />
         <MovieFooter
-          movie={movie}
+          {...movie}
         />
       </div>
     </div>
