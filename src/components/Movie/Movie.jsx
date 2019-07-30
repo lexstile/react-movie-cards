@@ -26,8 +26,7 @@ export const Movie = ({
   even,
 } : MoviePropsType) => {
   const rating = setColorBorder(recommendation && recommendation.rating);
-  const loadComponentName = `./layouts/${layout}MovieLayout`;
-  const MovieLayout = React.lazy(() => import(loadComponentName));
+  const MovieLayout = React.lazy(() => import(`./layouts/${layout}MovieLayout`));
 
   return (
     <Suspense fallback={<div>Загрузка макета...</div>}>
