@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { find } from 'lodash';
 import { requestData } from '../../actions';
 import { getMoviesSelector, getRecommendationsSelector } from '../../selectors';
 import { Movie } from '../Movie';
@@ -38,7 +39,7 @@ export const MovieList = connect(
             even={(index + 1) % 2 === 0}
             layout={layout}
             movie={movie}
-            recommendation={recommendations.find(({ movieId }) => movieId === movie.id)}
+            recommendation={find(recommendations, { movieId: movie.id })}
           />
         ))}
       </div>
