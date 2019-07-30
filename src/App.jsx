@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import { Header, MovieList, SwitchLayout } from './components';
-import { LayoutType } from './constants';
+import { LayoutType, PAGE_TITLE } from './constants';
 import './App.less';
 
 export const App = () => {
@@ -10,7 +10,7 @@ export const App = () => {
   return (
     <React.Fragment>
       <Header>
-        React Movie Cards
+        {PAGE_TITLE}
       </Header>
       <SwitchLayout
         layout={layout}
