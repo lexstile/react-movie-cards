@@ -6,7 +6,7 @@ type HeaderPropsType = {
   children: String,
 };
 
-export const Header = (
+export const Header = React.memo((
   { children } : HeaderPropsType
 ) => (
   <nav className={`${styles.header} navbar navbar-dark bg-dark`}>
@@ -17,4 +17,4 @@ export const Header = (
       </div>
     </div>
   </nav>
-);
+));

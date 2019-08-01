@@ -10,7 +10,13 @@ type IconButtonPropsType = {
   onClick: () => void,
 };
 
-export const IconButton = (
+const areEqual = (prevProps, nextProps) => {
+  const isEqual = prevProps.src === nextProps.src
+  && prevProps.active === nextProps.active;
+  return isEqual;
+};
+
+export const IconButton = React.memo((
   { src, active, onClick } : IconButtonPropsType
 ) => (
   <ReactSVG
@@ -18,4 +24,4 @@ export const IconButton = (
     className={classnames(styles.iconButton, active ? styles.active : '')}
     onClick={onClick}
   />
-);
+), areEqual);
