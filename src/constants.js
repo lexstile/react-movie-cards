@@ -9,7 +9,7 @@ export const PAGE_TITLE = 'React Movie Cards';
 export const LayoutType = {
   MOBILE: 'Mobile',
   TABLET: 'Tablet',
-  DESKTOP: 'Desctop',
+  DESKTOP: 'Desktop',
 };
 
 export const actionType = {
