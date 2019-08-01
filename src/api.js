@@ -6,4 +6,4 @@ export const fetchMovies = () => axios.get(`${API_BASE_URL}/api/movies`);
 
 export const fetchRecommendations = () => axios.get(`${API_BASE_URL}/api/recommendations`);
 
-export const fetchData = () => axios.all([fetchMovies(), fetchRecommendations()]);
+export const fetchMoviesWithRecommendations = () => axios.all([fetchMovies(), fetchRecommendations()]);

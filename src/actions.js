@@ -1,10 +1,10 @@
 // @flow
-import { fetchData } from './api';
+import { fetchMoviesWithRecommendations } from './api';
 import { storeData } from './actionCreators';
 
-export const requestData = () => async (dispatch) => {
+export const requestMoviesWithRecommendations = () => async (dispatch) => {
   try {
-    const [movies, recommendations] = await fetchData();
+    const [movies, recommendations] = await fetchMoviesWithRecommendations();
     dispatch(storeData({
       movies: movies.data,
       recommendations: recommendations.data,

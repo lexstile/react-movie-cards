@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { find } from 'lodash';
-import { requestData } from '../../actions';
+import { requestMoviesWithRecommendations } from '../../actions';
 import { getMoviesSelector, getRecommendationsSelector } from '../../selectors';
 import { Movie } from '../Movie';
 import type { MovieType, RecommendationsType } from '../../types';
@@ -11,7 +11,7 @@ import type { MovieType, RecommendationsType } from '../../types';
 type MovieListPropsType = {
   movies: Array<MovieType>,
   recommendations: Array<RecommendationsType>,
-  getData: () => void,
+  getMoviesWithRecommendations: () => void,
 };
 
 export const MovieList = connect(
@@ -19,15 +19,15 @@ export const MovieList = connect(
     movies: getMoviesSelector,
     recommendations: getRecommendationsSelector,
   }),
-  { getData: requestData },
+  { getMoviesWithRecommendations: requestMoviesWithRecommendations },
 )(({
   movies,
   recommendations,
   layout,
-  getData,
+  getMoviesWithRecommendations,
 } : MovieListPropsType) => {
   useEffect(() => {
-    getData();
+    getMoviesWithRecommendations();
   }, []);
 
   return (
