@@ -1,4 +1,6 @@
 // @flow
+import { actionType } from './constants';
+
 const initialStateApp = {
   movies: [],
   recommendations: [],
@@ -6,7 +8,7 @@ const initialStateApp = {
 
 export const appReducer = (state = initialStateApp, action) => {
   switch (action.type) {
-    case 'STORE_DATA':
+    case actionType.INITIAL_STATE:
       return {
         ...state,
         ...action.payload,

@@ -13,5 +13,5 @@ export const LayoutType = {
 };
 
 export const actionType = {
-  DATA: 'STORE_DATA',
+  INITIAL_STATE: 'INITIAL_STATE',
 };
