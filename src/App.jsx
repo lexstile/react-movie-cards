@@ -5,7 +5,7 @@ import { LayoutType, PAGE_TITLE } from './constants';
 import './App.less';
 
 export const App = () => {
-  const [layout, changeLayout] = useState(LayoutType.DESKTOP);
+  const [layout, handleChangeLayout] = useState(LayoutType.DESKTOP);
 
   return (
     <React.Fragment>
@@ -14,7 +14,7 @@ export const App = () => {
       </Header>
       <SwitchLayout
         layout={layout}
-        onChangeLayout={changeLayout}
+        onChangeLayout={handleChangeLayout}
       />
       <MovieList
         layout={layout}
