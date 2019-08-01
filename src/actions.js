@@ -1,6 +1,7 @@
 // @flow
 import { fetchMoviesWithRecommendations } from './api';
-import { initializeInitialState } from './actionCreators';
+import { initializeInitialState, initializeInitialStateError } from './actionCreators';
+import { ERRORS } from './constants';
 
 export const requestMoviesWithRecommendations = () => async (dispatch) => {
   try {
@@ -10,6 +11,6 @@ export const requestMoviesWithRecommendations = () => async (dispatch) => {
       recommendations: recommendations.data,
     }));
   } catch (err) {
-    dispatch(initializeInitialState(err));
+    dispatch(initializeInitialStateError(ERRORS.INITIAL_STATE_ERROR));
   }
 };
